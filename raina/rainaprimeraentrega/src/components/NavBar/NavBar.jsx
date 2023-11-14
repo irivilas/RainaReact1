@@ -1,18 +1,19 @@
+import { Link } from "react-router-dom";
 import { CartWidget } from "../CartWidget/CartWidget";
 
 
 export const NavBar = () => {
   return (
-    <nav className="d-flex justify-content-around p-4">
+    <nav className="d-flex justify-content-around mt-2">
+      <Link to={"/"}>
+        <h4>Mi Tienda RAINA</h4>
+      </Link>
       <div>
-        <button className="btn btn-success mx-2">Inicio</button>
-        <button className="btn btn-success mx-2">Productos y servicios</button>
-        <button className="btn btn-success mx-2">Contacto</button>
+        <Link to={"/category/juguetes"}>
+          <button className="btn btn-outline-dark mx-2">Juguetes</button>
+        </Link>
       </div>
-      <div className="d-flex">
-        <CartWidget />
-        <p className="mx-2">0</p>
-      </div>
+      <CartWidget />
     </nav>
   );
 };

@@ -1,5 +1,5 @@
-import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
-import { NavBar } from "./components/NavBar/NavBar";
+import { ItemListContainer } from "../components/ItemListContainer/ItemListContainer";
+import { NavBar } from "../components/NavBar/NavBar";
 
 const productos = [
   {
@@ -18,10 +18,18 @@ const productos = [
 
 export const App = () => {
   return (
-    <>
+
+
+<BrowserRouter>
       <NavBar />
-      <ItemListContainer greeting={"Hola les doy la Bienvenida a RAINA"} />
-    </>
+      <Routes>
+        <Route path="/" element={<ItemListContainer greeting={"Bienvenidos a RAINA"} />} />
+        <Route path="/category/:category" element={<ItemListContainer greeting={"Bienvenidos a RAINA"} />} />
+        <Route path="/item/:id" element={<ItemDetailContainer />} />
+      </Routes>
+    </BrowserRouter>
+
+ 
   );
 };
 

@@ -4,4 +4,5 @@ export const CartWidget = () => {
   return (
     <FaUserAlt color="red" size={25} />
   )
+ 
 }
