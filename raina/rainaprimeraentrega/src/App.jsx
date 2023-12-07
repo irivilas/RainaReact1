@@ -1,5 +1,34 @@
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
 import { NavBar } from "./components/NavBar/NavBar";
+import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
+import { FirebaseContextProvider } from "./context/FirebaseContext";
+import { CartContextProvider } from "./context"; 
+import { Products } from "./components/Products/Products"; 
+import { Cart } from "./components/Cart/Cart"; 
+
+export const App = () => {
+  return (
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<ItemListContainer greeting={"Bienvenidos a RAINA"} />} />
+        <Route path="/item/:id" element={<ItemDetailContainer />} />
+      </Routes>
+
+      {}
+      <FirebaseContextProvider>
+        <CartContextProvider>
+          <Products />
+          <Cart />
+        </CartContextProvider>
+      </FirebaseContextProvider>
+    </BrowserRouter>
+  );
+};
+
+
 
 const productos = [
   {
@@ -16,20 +45,5 @@ const productos = [
   }
 ];
 
-export const App = () => {
-  return (
 
-
-<BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<ItemListContainer greeting={"Bienvenidos a RAINA"} />} />
-        <Route path="/category/:category" element={<ItemListContainer greeting={"Bienvenidos a RAINA"} />} />
-        <Route path="/item/:id" element={<ItemDetailContainer />} />
-      </Routes>
-    </BrowserRouter>
-
- 
-  );
-};
 
