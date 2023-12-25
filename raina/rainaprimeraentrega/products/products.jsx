@@ -1,9 +1,12 @@
+
 import React, { useEffect, useContext } from "react";
 import { Box, Button, Typography } from "@material-ui/core";
 import ShoppingCartSharpIcon from "@material-ui/icons/ShoppingCartSharp";
 import { CartContext } from "../../context/CartContext";
 import { FirebaseContext } from "../../context/FirebaseContext";
 import { CardItem } from "../CardItem/CardItem";
+import { collection, query, getDocs } from 'firebase/firestore'; // Add Firestore imports
+import { db } from 'path-to-your-firebase-config'; // Replace with your actual path
 
 export const Products = () => {
   const { totalProducts } = useContext(CartContext);
@@ -34,15 +37,15 @@ export const Products = () => {
           Home
         </Button>
 
-        <Button variant="contained" color="inherit" onClick={() => getProductsDB("ropa")}>
+        <Button variant="contained" color="inherit" onClick={() => fetchDataFromFirestore()}>
           Juguetes
         </Button>
         <Box display="flex">
           <ShoppingCartSharpIcon color="action" />
-          <Typography> {totalProducts} </Typography>
+          <Typography style={{ fontSize: 20 }}> {totalProducts} </Typography>
         </Box>
       </Box>
-      <Typography fontSize={20} marginBottom={3}>
+      <Typography style={{ fontSize: 20, marginBottom: 3 }}>
         Productos
       </Typography>
       <Box component="div" display="flex" flexWrap="wrap">
@@ -53,6 +56,3 @@ export const Products = () => {
     </>
   );
 };
-
-    
-

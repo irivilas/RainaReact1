@@ -1,1 +1,3 @@
-export * from './usecount';
+
+export * as useCount from "../../hooks/useCount.js";
+

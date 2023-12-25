@@ -20,6 +20,10 @@ export const CardItem = ({ id, name, price, description, stock }) => {
         <Typography> {count} </Typography>
         <Button onClick={decrement}>-</Button>
       </Box>
+      <Button size="small" color="primary" variant="contained" onClick={() => addProductCart( {id, name, price}, count  )}  >
+        Agregar al carrito
+      </Button>
+
     </Card>
   );
 };

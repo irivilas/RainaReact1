@@ -12,7 +12,7 @@ export const Form = () => {
       name: "Castillo Nº1 ",
       price: 2500,
       description: "Juguetes para  niños",
-      stock: 5,
+      stock: 4,
     };
     
     setName("");
